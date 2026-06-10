@@ -1,0 +1,7 @@
+{
+  "name": "hamster",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Agentic loop primitives for pi",
+  "type": "module"
+}
