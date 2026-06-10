@@ -1,5 +1,7 @@
 # Hamster — Looping Tooling for Pi
 
+<p align="center"><img src="media/logo.png" width="128" alt="Hamster logo" /></p>
+
 Agentic loop primitives for the [pi coding agent](https://pi.dev). Goal loops, iteration loops, for-each loops, research loops — composable extensions that turn pi into an autonomous, self-driving engineering system.
 
 > **Status.** Early development. Research complete. Implementation beginning.
