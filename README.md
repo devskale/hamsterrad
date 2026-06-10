@@ -2,8 +2,6 @@
 *For putting agents into the hamsterrad.*
 
 <p align="center">
-  <img src="media/logo.png" width="128" alt="Hamsterrad logo" />
-  <br />
   <img src="media/makeitloop.png" width="480" alt="Make it loop" />
 </p>
 
