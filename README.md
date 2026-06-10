@@ -1,7 +1,11 @@
 # Hamsterrad — Looping Tooling for Pi
 *For putting agents into the hamsterrad.*
 
-<p align="center"><img src="media/logo.png" width="128" alt="Hamsterrad logo" /></p>
+<p align="center">
+  <img src="media/logo.png" width="128" alt="Hamsterrad logo" />
+  <br />
+  <img src="skaleshare/hamster/makeitloop.png" width="480" alt="Make it loop" />
+</p>
 
 Agentic loop primitives for the [pi coding agent](https://pi.dev). Goal loops, iteration loops, for-each loops, research loops — composable extensions that turn pi into an autonomous, self-driving engineering system.
 
