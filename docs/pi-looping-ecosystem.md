@@ -1,6 +1,6 @@
 # Pi Looping Ecosystem — What Exists Today
 
-Every pi package, extension, and pattern that does anything loop-related. Gap analysis for what hamster should (and shouldn't) build.
+Every pi package, extension, and pattern that does anything loop-related. Gap analysis for what hamsterrad should (and shouldn't) build.
 
 *Compiled 2026-06-10 from web research + X/Twitter intelligence.*
 
@@ -290,7 +290,7 @@ Claude Code-style dynamic workflows for Pi. Fan tasks across 100s of subagents w
 
 ---
 
-## 8. Gap Analysis: What Hamster Should Build
+## 8. Gap Analysis: What Hamsterrad Should Build
 
 ### Don't rebuild (solved elsewhere)
 
@@ -315,8 +315,8 @@ Claude Code-style dynamic workflows for Pi. Fan tasks across 100s of subagents w
 | **Standard state file convention** | Cross-loop interoperability | Each uses different format/location |
 | **Loop composition API** | Advanced users | No standard way to chain loop types |
 
-### Hamster's positioning
+### Hamsterrad's positioning
 
-Hamster provides the **loop primitives** that pi-goal-x, pi-ralph, pi-autoresearch, and future loop extensions can all build on — rather than each reinventing iteration, state, guardrails, and verification independently.
+Hamsterrad provides the **loop primitives** that pi-goal-x, pi-ralph, pi-autoresearch, and future loop extensions can all build on — rather than each reinventing iteration, state, guardrails, and verification independently.
 
-Think of it as: **what express.js is to web servers, hamster is to agentic loops for pi.**
+Think of it as: **what express.js is to web servers, hamsterrad is to agentic loops for pi.**

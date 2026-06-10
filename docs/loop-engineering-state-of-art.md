@@ -1,6 +1,6 @@
 # Loop Engineering — State of the Art (June 2026)
 
-Research synthesis from web search and X/Twitter intelligence. Compiled 2026-06-10 as foundation for the hamster looping tooling project.
+Research synthesis from web search and X/Twitter intelligence. Compiled 2026-06-10 as foundation for the hamsterrad looping tooling project.
 
 ---
 

@@ -1,6 +1,7 @@
-# Hamster — Looping Tooling for Pi
+# Hamsterrad — Looping Tooling for Pi
+*For putting agents into the hamsterrad.*
 
-<p align="center"><img src="media/logo.png" width="128" alt="Hamster logo" /></p>
+<p align="center"><img src="media/logo.png" width="128" alt="Hamsterrad logo" /></p>
 
 Agentic loop primitives for the [pi coding agent](https://pi.dev). Goal loops, iteration loops, for-each loops, research loops — composable extensions that turn pi into an autonomous, self-driving engineering system.
 
@@ -23,12 +24,12 @@ This project fills that gap.
 | [pi-autoresearch](https://github.com/davebcn87/pi-autoresearch) | Experiment loop | Domain-specific |
 | [rpiv-pi](https://github.com/juicesharp/rpiv-pi) | Ship-loop (5-skill pipeline) | Not a loop framework |
 
-**None compose.** Hamster provides the **primitive** they can all build on.
+**None compose.** Hamsterrad provides the **primitive** they can all build on.
 
 ## File Map
 
 ```
-hamster/
+hamsterrad/
 ├── README.md          ← This file
 ├── AGENTS.md          ← Agent instructions
 └── docs/

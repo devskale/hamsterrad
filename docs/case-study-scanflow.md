@@ -2,7 +2,7 @@
 
 Scanflow is a production agentic workflow system at `kontext.one/python-utils/packages/strukt2meta/scanflow/`. It processes German public tender documents (Ausschreibungs-Analyse-Bogen / AAB) through multi-step LLM-powered analysis.
 
-**This is a living case study.** As we build hamster primitives, we'll update this with integration plans.
+**This is a living case study.** As we build hamsterrad primitives, we'll update this with integration plans.
 
 *Analyzed 2026-06-10.*
 
@@ -74,7 +74,7 @@ for self.turn in range(self.turn + 1, max_turns + 1):
 - Done condition: agent calls `finish` tool with result data
 - No explicit blocked condition — just runs until finish or max_turns
 
-**Maps to:** Foundational ReAct pattern. Every agentic system has this. Not a hamster primitive itself — it's the substrate.
+**Maps to:** Foundational ReAct pattern. Every agentic system has this. Not a hamsterrad primitive itself — it's the substrate.
 
 ### Loop 2: Iteration Loop with Retry (`Agent.loop()`)
 
@@ -113,7 +113,7 @@ while retries < max_retries:              # outer retry bound
 - Scanflow approach: faster (no cold start), but residual context can bias
 - Ralph approach: cleaner reasoning, but loses all conversational context each time
 
-Both are valid. Hamster should support **both modes** as configuration on the iteration loop.
+Both are valid. Hamsterrad should support **both modes** as configuration on the iteration loop.
 
 ### Loop 3: Phase-Gated Pipeline (`Orchestrator.run_workflow()`)
 
@@ -153,7 +153,7 @@ Two-phase pipeline. Each phase has its own Step definition with allowed tools.
 
 ## State Management Deep-Dive
 
-Scanflow has **three state layers**, which is instructive for hamster's state design:
+Scanflow has **three state layers**, which is instructive for hamsterrad's state design:
 
 ### Layer 1: AgentState (in-memory working memory)
 
@@ -203,9 +203,9 @@ class PersistedState:
 - Deleted on successful completion (transient)
 - Loaded by `--resume` flag or automatically when file exists
 
-### What hamster can learn from this
+### What hamsterrad can learn from this
 
-| Insight | Application to Hamster |
+| Insight | Application to Hamsterrad |
 |---------|----------------------|
 | **3-layer state is right size** | Working memory (per-iteration) + artifacts (cross-iteration) + resume (full recovery) |
 | **JSON files are sufficient** | No need for SQLite or other DB — JSON is debuggable, git-friendly, human-readable |
@@ -236,7 +236,7 @@ Plus `_prune_conversation()` as emergency overflow:
 # Drop: everything else
 ```
 
-**This is a sophisticated approach.** For hamster's iteration loop, we should offer both strategies:
+**This is a sophisticated approach.** For hamsterrad's iteration loop, we should offer both strategies:
 1. **Prune-in-place** (scanflow style) — keeps warm context, compresses old turns
 2. **Fresh-restart** (canonical Ralph style) — clean slate each iteration, uses NOTES.md/git for continuity
 
@@ -275,7 +275,7 @@ STEPS = [FINDE_AAB_STEP, EXTRACT_META_STEP]
 - No `parallel` flag — no fan-out capability
 - No timeout per step — only global `max_turns`
 
-These are all things hamster's step/loop primitives could standardize.
+These are all things hamsterrad's step/loop primitives could standardize.
 
 ---
 
@@ -298,11 +298,11 @@ These are all things hamster's step/loop primitives could standardize.
 
 ### Near-term (hamsters first primitives)
 
-| Hamster Primitive | How Scanflow Would Use It |
+| Hamsterrad Primitive | How Scanflow Would Use It |
 |-------------------|--------------------------|
 | **foreach-loop** | Process all AAB files in batch instead of sequentially discovering then extracting |
 | **guardrails.ts** | Token/cost budget cap per workflow run (currently unbounded) |
-| **Standardized state format** | Replace ad-hoc `.scanflow.*.json` with hamster state convention |
+| **Standardized state format** | Replace ad-hoc `.scanflow.*.json` with hamsterrad state convention |
 | **Done/Blocked events** | Replace string-matched `_expected_key_for()` with declarative `expects` |
 
 ### Medium-term (composition)
@@ -313,14 +313,14 @@ These are all things hamster's step/loop primitives could standardize.
 | **Audit loop post-run** | Automatic quality check of extracted metadata before writing to scanflow.json |
 | **Maker-checker split** | Use cheaper model for extraction, stronger model for verification pass |
 
-### Long-term (if scanflow adopts hamster)
+### Long-term (if scanflow adopts hamsterrad)
 
 | Change | Why |
 |--------|-----|
-| Replace `Agent.loop()` with hamster iteration engine | Eliminate ~150 lines of retry/prune/resume plumbing |
-| Replace `Orchestrator` with hamster dev-loop primitive | Get phase gating, parallel steps, dependency graph for free |
+| Replace `Agent.loop()` with hamsterrad iteration engine | Eliminate ~150 lines of retry/prune/resume plumbing |
+| Replace `Orchestrator` with hamsterrad dev-loop primitive | Get phase gating, parallel steps, dependency graph for free |
 | Add foreach for bulk operations | "Extract metadata from all 200 AAB files in this directory" becomes one command |
-| Standard events protocol | `hamster:done`, `hamster:blocked`, `hamster:iter-start` enable TUI widgets, monitoring, external hooks |
+| Standard events protocol | `hamsterrad:done`, `hamsterrad:blocked`, `hamsterrad:iter-start` enable TUI widgets, monitoring, external hooks |
 
 ---
 
@@ -336,15 +336,15 @@ These are all things hamster's step/loop primitives could standardize.
 | `steps/*.py` (5 files) | ~200 total | Step definitions + individual logic |
 | **Total core** | **~825** | Excluding tools (which are domain-specific) |
 
-**Of these ~825 lines, roughly 300 are loop/retry/state/plumbing infrastructure** that hamster primitives could replace. That's ~36% of the codebase that's generic loop machinery, not domain logic.
+**Of these ~825 lines, roughly 300 are loop/retry/state/plumbing infrastructure** that hamsterrad primitives could replace. That's ~36% of the codebase that's generic loop machinery, not domain logic.
 
 ---
 
-## Key Takeaways for Hamster Design
+## Key Takeaways for Hamsterrad Design
 
 1. **Scanflow proves the patterns work** — it's running in production processing real tender documents. Loops aren't theoretical.
-2. **36% of its code is generic loop plumbing** — this is the exact problem hamster solves. If those 300 lines became 30 lines of hamster imports, scanflow gets smaller AND more capable.
-3. **The 3-layer state model is the right abstraction** — working memory, artifacts, resume. Hamster should formalize this.
+2. **36% of its code is generic loop plumbing** — this is the exact problem hamsterrad solves. If those 300 lines became 30 lines of hamsterrad imports, scanflow gets smaller AND more capable.
+3. **The 3-layer state model is the right abstraction** — working memory, artifacts, resume. Hamsterrad should formalize this.
 4. **Prune-in-place vs fresh-restart are both needed** — don't pick one. Offer both as iteration loop config.
 5. **Step evaluation is underspecified** — string-matching goal text for expected outputs is fragile. Declarative `expects` on steps is better.
 6. **No cost awareness is dangerous** — a long-running scanflow on an expensive model could burn significant budget with no cap. Guardrails are the first thing any loop system needs.

@@ -1,4 +1,4 @@
-# AGENTS.md — Hamster
+# AGENTS.md — Hamsterrad
 
 Agentic loop primitives for pi. See [README.md](README.md) for project overview.
 
@@ -19,7 +19,7 @@ skills/              Loop-specific SKILL.md files
 ## Conventions
 
 - **One concern per extension** — compose via `pi.events`
-- **Namespace events:** `hamster:done`, `hamster:blocked`, `hamster:iter-start`
+- **Namespace events:** `hamsterrad:done`, `hamsterrad:blocked`, `hamsterrad:iter-start`
 - **State in `details` or `appendEntry`** — never module-level vars alone (breaks fork/tree)
 - **Always truncate output** — 50KB / 2000 lines via `truncateHead`/`truncateTail`
 - **`StringEnum`** for enums — not `Type.Union`/`Type.Literal` (Google API compat)

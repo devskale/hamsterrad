@@ -1,6 +1,6 @@
-# Hamster Documentation Index
+# Hamsterrad Documentation Index
 
-Hub for all hamster documentation. Each document covers one aspect of the looping tooling project.
+Hub for all hamsterrad documentation. Each document covers one aspect of the looping tooling project.
 
 ## Research Phase (complete)
 
@@ -60,7 +60,7 @@ These documents will be written as we move from research to architecture.
 
 ### 4. [Case Study: Scanflow](case-study-scanflow.md)
 
-**Real-world proof.** A production agentic workflow (kontext.one/strukt2meta) analyzed through our loop taxonomy. Three nested loops, 3-layer state model, context window management — and where hamster primitives would replace ~36% of its code.
+**Real-world proof.** A production agentic workflow (kontext.one/strukt2meta) analyzed through our loop taxonomy. Three nested loops, 3-layer state model, context window management — and where hamsterrad primitives would replace ~36% of its code.
 
 Covers:
 - Architecture: CLI → Orchestrator → Agent → Tools (3 nested loops)
@@ -71,7 +71,7 @@ Covers:
 - Context window management strategy (receipt compression + emergency pruning)
 - What validates from our research + what's missing
 - Integration plan: near-term, medium-term, long-term
-- **~36% of scanflow's code is generic loop plumbing** that hamster could replace
+- **~36% of scanflow's code is generic loop plumbing** that hamsterrad could replace
 
 **Read this** to see what loops look like in production today.
 

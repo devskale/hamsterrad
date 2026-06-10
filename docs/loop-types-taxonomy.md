@@ -1,6 +1,6 @@
 # Loop Types Taxonomy
 
-Every loop shape we might support, with trigger/stop/shape analysis, implementation complexity, and priority for hamster.
+Every loop shape we might support, with trigger/stop/shape analysis, implementation complexity, and priority for hamsterrad.
 
 *This is the design space. Not all of these will be built first. Use this to decide what to tackle when.*
 
@@ -377,7 +377,7 @@ interface DevLoopState {
 - **Inner debug loop**: When a test fails during verification, delegate to the debug loop rather than inventing ad-hoc fixing logic.
 - **PR creation is optional** — some orgs want commits directly to branch, others want PRs.
 
-**Existing coverage:** rpiv-pi's ship-loop (5 skills) covers this comprehensively. Hamster's dev loop would be a lighter, composable alternative using our primitives.
+**Existing coverage:** rpiv-pi's ship-loop (5 skills) covers this comprehensively. Hamsterrad's dev loop would be a lighter, composable alternative using our primitives.
 
 **Complexity:** ★★★★☆ (multi-phase + criteria tracking + inner loop delegation)
 
